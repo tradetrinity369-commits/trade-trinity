@@ -209,6 +209,13 @@ async function loadStats(user) {
   document.getElementById("totalTrades").innerText = totalTrades;
   document.getElementById("winRate").innerText = winPercentage + "%";
   document.getElementById("avgRR").innerText = avgRR;
+  // Update circle
+const circle = document.getElementById("winCircle");
+circle.innerText = winPercentage + "%";
+circle.style.background = `conic-gradient(
+  green ${winPercentage}%,
+  red ${100 - winPercentage}%
+)`;
 }
 
 onAuthStateChanged(auth, (user) => {
