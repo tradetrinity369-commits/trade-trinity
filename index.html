@@ -160,7 +160,20 @@ document.getElementById("newTradeBtn").addEventListener("click", () => {
 document.getElementById("saveTradeBtn").addEventListener("click", async () => {
     const result = document.getElementById("resultInput").value.toLowerCase();
     const rr = parseFloat(document.getElementById("rrInput").value);
+const user = auth.currentUser;
 
+if (!user) {
+  alert("User not logged in");
+  return;
+}
+
+await addDoc(collection(db, "trades"), {
+  uid: user.uid,
+  pair: document.getElementById("pairInput").value,
+  result: result,
+  rr: rr,
+  createdAt: new Date()
+});
     let totalTrades = parseInt(document.getElementById("totalTrades").innerText);
     let wins = parseInt(document.getElementById("winRate").dataset.wins || 0);
     let totalRR = parseFloat(document.getElementById("avgRR").dataset.totalrr || 0);
