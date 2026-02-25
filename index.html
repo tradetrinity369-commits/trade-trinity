@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <button class="btn">+ New Trade</button>
+ <button class="btn" id="newTradeBtn">+ New Trade</button> 
 
   <div class="name">ADARSH UMESH MENDON</div>
 <script type="module">
@@ -104,6 +104,10 @@
   const db = getFirestore(app);
 
   console.log("Firebase Connected Successfully");
+  
+document.getElementById("newTradeBtn").addEventListener("click", () => {
+    alert("New Trade button clicked 🚀");
+});
 </script>
   
 </body>
