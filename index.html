@@ -85,6 +85,25 @@
   <button class="btn">+ New Trade</button>
 
   <div class="name">ADARSH UMESH MENDON</div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDPMSmppyUouvyzbrr-NDGWQCBBbtoaDls",
+    authDomain: "trade-trinity-185e3.firebaseapp.com",
+    projectId: "trade-trinity-185e3",
+    storageBucket: "trade-trinity-185e3.firebasestorage.app",
+    messagingSenderId: "816692119340",
+    appId: "1:816692119340:web:7165d8c4ae85d6ff420e89"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  console.log("Firebase Connected Successfully");
+</script>
 </body>
       </html>
