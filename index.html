@@ -70,15 +70,15 @@
   <div class="card-row">
     <div class="card">
       <h3>Total Trades</h3>
-      <p>0</p>
+      <p id="totalTrades">0</p>
     </div>
     <div class="card">
       <h3>Winrate</h3>
-      <p>70%</p>
+      <p id="winRate">70%</p>
     </div>
     <div class="card">
       <h3>Avg R:R</h3>
-      <p>0.0</p>
+      <p id="avgRR">0.0</p>
     </div>
   </div>
 
@@ -126,11 +126,19 @@ document.getElementById("newTradeBtn").addEventListener("click", () => {
         text-align:center;
     ">
         <h3 style="color:#D4AF37;">Add New Trade</h3>
-        <input placeholder="Pair (e.g BTCUSD)" style="width:100%;margin:8px 0;padding:8px;">
-        <input placeholder="Result (Win/Loss)" style="width:100%;margin:8px 0;padding:8px;">
-        <button onclick="document.getElementById('tradeModal').remove()" 
-            style="margin-top:10px;padding:8px 15px;background:#D4AF37;border:none;">
-            Close
+        <input id="pairInput" placeholder="Pair (e.g BTCUSD)" style="width:100%;margin:8px 0;padding:8px;">
+        <input id="resultInput" placeholder="Result (Win/Loss)" style="width:100%;margin:8px 0;padding:8px;">
+        <input id="rrInput" placeholder="R:R (e.g 2.5)" style="width:100%;margin:8px 0;padding:8px;">
+
+<button id="saveTradeBtn"
+    style="margin-top:10px;padding:8px 15px;background:#D4AF37;border:none;">
+    Save Trade
+</button>
+
+<button onclick="document.getElementById('tradeModal').remove()"
+    style="margin-top:10px;padding:8px 15px;background:#444;border:none;color:white;">
+    Close
+</button>
         </button>
     </div>
 </div>
