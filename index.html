@@ -16,18 +16,7 @@
     .gold {
       color: #D4AF37;
     }
-    .circle {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: conic-gradient(green 70%, red 30%);
-      margin: 30px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      font-weight: bold;
-    }
+    
     .card-row {
       display: flex;
       justify-content: space-around;
@@ -67,9 +56,7 @@
   Structure Discipline Profits
 </h2>
 
-  <div class="circle" id="winCircle">
-  0%
-</div>
+
 
   <div class="card-row">
     <div class="card">
@@ -231,13 +218,7 @@ tradeList.innerHTML += `
   document.getElementById("totalTrades").innerText = totalTrades;
   document.getElementById("winRate").innerText = winPercentage + "%";
   document.getElementById("avgRR").innerText = avgRR;
-  // Update circle
-const circle = document.getElementById("winCircle");
-circle.innerText = winPercentage + "%";
-circle.style.background = `conic-gradient(
-  green ${winPercentage}%,
-  red ${100 - winPercentage}%
-)`;
+
 }
 
 onAuthStateChanged(auth, (user) => {
