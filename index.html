@@ -193,11 +193,26 @@ async function loadStats(user) {
   let totalTrades = 0;
   let wins = 0;
   let totalRR = 0;
-
+const tradeList = document.getElementById("tradeList");
+tradeList.innerHTML = "";
   const snapshot = await getDocs(collection(db, "trades"));
   snapshot.forEach(doc => {
     const trade = doc.data();
     if (trade.uid === user.uid) {
+      // Add trade to journal
+tradeList.innerHTML += `
+  <div style="
+    background:#111;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    text-align:left;
+  ">
+    <strong>${trade.pair}</strong><br>
+    Result: ${trade.result}<br>
+    R:R: ${trade.rr}
+  </div>
+`;
       totalTrades++;
       if (trade.result === "win") {
         wins++;
