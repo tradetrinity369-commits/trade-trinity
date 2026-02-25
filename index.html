@@ -139,11 +139,42 @@ document.getElementById("newTradeBtn").addEventListener("click", () => {
     style="margin-top:10px;padding:8px 15px;background:#444;border:none;color:white;">
     Close
 </button>
-        </button>
+      
     </div>
 </div>
 `);
+
+document.getElementById("saveTradeBtn").addEventListener("click", () => {
+
+    const result = document.getElementById("resultInput").value.toLowerCase();
+    const rr = parseFloat(document.getElementById("rrInput").value);
+
+    let totalTrades = parseInt(document.getElementById("totalTrades").innerText);
+    let wins = parseInt(document.getElementById("winRate").dataset.wins || 0);
+    let totalRR = parseFloat(document.getElementById("avgRR").dataset.totalrr || 0);
+
+    totalTrades++;
+
+    if(result === "win"){
+        wins++;
+        totalRR += rr;
+    }
+
+    const winPercentage = ((wins / totalTrades) * 100).toFixed(0);
+    const avgRR = wins > 0 ? (totalRR / wins).toFixed(2) : 0;
+
+    document.getElementById("totalTrades").innerText = totalTrades;
+    document.getElementById("winRate").innerText = winPercentage + "%";
+    document.getElementById("avgRR").innerText = avgRR;
+
+    document.getElementById("winRate").dataset.wins = wins;
+    document.getElementById("avgRR").dataset.totalrr = totalRR;
+
+    document.getElementById("tradeModal").remove();
 });
+
+});
+
 </script>
   
 </body>
