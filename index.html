@@ -74,7 +74,7 @@
     </div>
     <div class="card">
       <h3>Winrate</h3>
-      <p id="winRate">70%</p>
+      <p id="winRate">0%</p>
     </div>
     <div class="card">
       <h3>Avg R:R</h3>
@@ -317,9 +317,17 @@ onAuthStateChanged(auth, async (user) => {
     }
   });
 
-  if (totalTrades > 0) {
-    const winPercentage = ((wins / totalTrades) * 100).toFixed(0);
-    const avgRR = wins > 0 ? (totalRR / wins).toFixed(2) : 0;
+const winPercentage = totalTrades > 0 
+  ? ((wins / totalTrades) * 100).toFixed(0)
+  : 0;
+
+const avgRR = wins > 0 
+  ? (totalRR / wins).toFixed(2)
+  : 0;
+
+document.getElementById("totalTrades").innerText = totalTrades;
+document.getElementById("winRate").innerText = winPercentage + "%";
+document.getElementById("avgRR").innerText = avgRR;
 
     document.getElementById("totalTrades").innerText = totalTrades;
     document.getElementById("winRate").innerText = winPercentage + "%";
