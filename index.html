@@ -301,6 +301,22 @@ onAuthStateChanged(auth, (user) => {
     loadStats(user);
   }
 });
+ // Tab switching
+const dashboardTab = document.getElementById("dashboardTab");
+const journalTab = document.getElementById("journalTab");
+const journalSection = document.getElementById("journalSection");
+
+dashboardTab.addEventListener("click", () => {
+  journalSection.style.display = "none";
+  dashboardTab.classList.add("active");
+  journalTab.classList.remove("active");
+});
+
+journalTab.addEventListener("click", () => {
+  journalSection.style.display = "block";
+  dashboardTab.classList.remove("active");
+  journalTab.classList.add("active");
+}); 
 </script>
  <div class="bottom-nav">
   <div class="nav-item active" id="dashboardTab">
