@@ -5,6 +5,29 @@
   <title>Trade Trinity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#000000">
+  .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #0f0f0f;
+  border-top: 1px solid rgba(212,175,55,0.2);
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  backdrop-filter: blur(10px);
+}
+
+.nav-item {
+  color: #777;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.nav-item.active {
+  color: #D4AF37;
+  font-weight: 600;
+}
   <style>
     body {
   margin: 0;
