@@ -188,7 +188,9 @@ function renderEquityChart(trades) {
   if (equityChart) {
     equityChart.destroy();
   }
-
+const gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 220);
+gradient.addColorStop(0, 'rgba(212,175,55,0.45)');
+gradient.addColorStop(1, 'rgba(212,175,55,0)');
   equityChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -203,7 +205,7 @@ function renderEquityChart(trades) {
         pointRadius: 6,
         tension: 0.5,
         fill: true,
-        backgroundColor: 'rgba(212,175,55,0.15)'
+        backgroundColor: gradient 
       }]
     },
     options: {
