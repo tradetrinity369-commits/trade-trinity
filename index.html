@@ -162,6 +162,59 @@
 </div>
   
 <script type="module">
+  let equityChart;
+
+function renderEquityChart(trades) {
+
+  let equity = 100;
+  const equityData = [];
+  const labels = [];
+
+  trades.forEach((trade, index) => {
+    if (trade.result === "win") {
+      equity += trade.rr * 10;
+    } else {
+      equity -= 10;
+    }
+
+    equityData.push(equity);
+    labels.push(index + 1);
+  });
+
+  const ctx = document.getElementById('equityChart');
+
+  if (!ctx) return;
+
+  if (equityChart) {
+    equityChart.destroy();
+  }
+
+  equityChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: equityData,
+        borderColor: '#D4AF37',
+        borderWidth: 4,
+        pointBackgroundColor: '#D4AF37',
+        pointBorderColor: '#000',
+        pointBorderWidth: 2,
+        pointRadius: 6,
+        tension: 0.5,
+        fill: true,
+        backgroundColor: 'rgba(212,175,55,0.15)'
+      }]
+    },
+    options: {
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#D4AF37' } },
+        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } }
+      }
+    }
+  });
+}
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
 import { 
   getAuth, 
