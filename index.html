@@ -328,32 +328,7 @@ journalTab.addEventListener("click", () => {
   dashboardTab.classList.remove("active");
   journalTab.classList.add("active");
 }); 
-  // Simple demo equity chart
-const ctx = document.getElementById('equityChart');
 
-if (ctx) {
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
-      datasets: [{
-        label: 'Equity',
-        data: [100, 120, 110, 150, 140, 170, 200],
-        borderColor: '#D4AF37',
-        backgroundColor: 'rgba(212,175,55,0.1)',
-        tension: 0.4,
-        fill: true
-      }]
-    },
-    options: {
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: '#888' }, grid: { display: false } },
-        y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.05)' } }
-      }
-    }
-  });
-}
 </script>
  <div class="bottom-nav">
   <div class="nav-item active" id="dashboardTab">
