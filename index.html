@@ -295,7 +295,7 @@ tradeList.innerHTML += `
       }
     }
   });
-
+renderEquityChart(tradesArray);
   const winPercentage = totalTrades > 0 ? ((wins / totalTrades) * 100).toFixed(0) : 0;
   const avgRR = wins > 0 ? (totalRR / wins).toFixed(2) : 0;
 
