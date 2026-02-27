@@ -172,9 +172,9 @@ function renderEquityChart(trades) {
 
   trades.forEach((trade, index) => {
     if (trade.result === "win") {
-      equity += trade.rr * 10;
+      equity += trade.rr * 20;
     } else {
-      equity -= 10;
+      equity -= 20;
     }
 
     equityData.push(equity);
