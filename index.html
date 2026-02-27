@@ -272,6 +272,7 @@ tradeList.innerHTML = "";
   const tradesArray = [];
   snapshot.forEach(doc => {
     const trade = doc.data();
+    tradesArray.push(trade);
     if (trade.uid === user.uid) {
       // Add trade to journal
 tradeList.innerHTML += `
