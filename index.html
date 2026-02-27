@@ -269,6 +269,7 @@ async function loadStats(user) {
 const tradeList = document.getElementById("tradeList");
 tradeList.innerHTML = "";
   const snapshot = await getDocs(collection(db, "trades"));
+  const tradesArray = [];
   snapshot.forEach(doc => {
     const trade = doc.data();
     if (trade.uid === user.uid) {
